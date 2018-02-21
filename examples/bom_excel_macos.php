@@ -23,7 +23,7 @@ $writer = Writer::createFromPath('/tmp/toto.csv', 'w');
 $writer->setOutputBOM(Writer::BOM_UTF16_LE);
 // we register a Transcode Filter class to convert the CSV into the proper encoding charset
 stream_filter_register(FilterTranscode::FILTER_NAME."*", "\lib\FilterTranscode");
-$writer->appendStreamFilter(FilterTranscode::FILTER_NAME."UTF-8:UTF-16LE");
+$writer->addStreamFilter(FilterTranscode::FILTER_NAME."UTF-8:UTF-16LE");
 
 //we set the tab as the delimiter character
 $writer->setDelimiter("\t");
